@@ -12,7 +12,7 @@ os.makedirs("presentation_assets", exist_ok=True)
 
 print("Chargement des données...")
 # 1. Chargement des données
-df = pd.read_csv("WA_Fn-UseC_-Telco-Customer-Churn.csv")
+df = pd.read_csv("data/WA_Fn-UseC_-Telco-Customer-Churn.csv")
 
 # 2. Nettoyage de TotalCharges
 print("Nettoyage...")
@@ -52,9 +52,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 print(f"Taille du jeu d'entraînement : {X_train.shape[0]}")
 print(f"Taille du jeu de test : {X_test.shape[0]}")
 
-X_train.to_csv("X_train.csv", index=False)
-X_test.to_csv("X_test.csv", index=False)
-y_train.to_csv("y_train.csv", index=False)
-y_test.to_csv("y_test.csv", index=False)
+X_train.to_csv("data/X_train.csv", index=False)
+X_test.to_csv("data/X_test.csv", index=False)
+y_train.to_csv("data/y_train.csv", index=False)
+y_test.to_csv("data/y_test.csv", index=False)
 
 print("EDA et Prétraitement initial terminés.")

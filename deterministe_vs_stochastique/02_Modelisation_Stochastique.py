@@ -21,10 +21,10 @@ import xgboost as xgb
 sns.set_theme(style="whitegrid")
 
 print("Chargement des données prétraitées...")
-X_train = pd.read_csv("X_train.csv")
-X_test = pd.read_csv("X_test.csv")
-y_train = pd.read_csv("y_train.csv").squeeze('columns') # Convert to Series
-y_test = pd.read_csv("y_test.csv").squeeze('columns') # Convert to Series
+X_train = pd.read_csv("data/X_train.csv")
+X_test = pd.read_csv("data/X_test.csv")
+y_train = pd.read_csv("data/y_train.csv").squeeze('columns') # Convert to Series
+y_test = pd.read_csv("data/y_test.csv").squeeze('columns') # Convert to Series
 
 # Identification des types de colonnes
 categorical_cols = X_train.select_dtypes(include=['object']).columns.tolist()
@@ -175,10 +175,10 @@ with open("presentation_assets/3_pipeline_architecture.txt", "w") as f:
     f.write(str(preprocessor))
 
 print("\nSauvegarde des modèles pour Streamlit")
-joblib.dump(pipe_lr, 'model_deterministe_logreg.pkl')
-joblib.dump(pipe_rf, 'model_stochastique_random_forest.pkl')
-joblib.dump(pipe_xgb, 'model_stochastique_xgboost.pkl')
-joblib.dump(pipe_lgb, 'model_stochastique_lightgbm.pkl')
-joblib.dump(pipe_sgd, 'model_stochastique_sgd.pkl')
+joblib.dump(pipe_lr, 'models/model_deterministe_logreg.pkl')
+joblib.dump(pipe_rf, 'models/model_stochastique_random_forest.pkl')
+joblib.dump(pipe_xgb, 'models/model_stochastique_xgboost.pkl')
+joblib.dump(pipe_lgb, 'models/model_stochastique_lightgbm.pkl')
+joblib.dump(pipe_sgd, 'models/model_stochastique_sgd.pkl')
 
 print("Exécution complète et visuels exportés dans presentation_assets/")

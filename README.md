@@ -1,58 +1,32 @@
-# Analyse de Churn Télécom : Déterminisme vs Approches Stochastiques
+# Projet de : Déterminisme vs Probabilités (Stochastique)
 
-Ce projet est une application pratique destinée à comparer méthodologiquement la capacité des approches mathématiques déterministes par rapport aux algorithmes d'apprentissage machine stochastiques (arborescents et descente de gradient). Le tout est abordé sous le prisme d'une problématique commerciale concrète : la prédiction du désabonnement des clients (Churn) dans le secteur des télécommunications.
+Bienvenue sur le dépôt principal de notre projet de recherche en Data Science. 
 
-Ce dépôt a été structuré pour répondre à des critères d'évaluation académiques en termes d'analyse exploratoire rigoureuse des données (EDA), d'ingénierie logicielle (pipeline de prétraitement sans fuite de données) et sur le plan de l'interprétabilité éthique algorithmique.
+## Description Globale
+Ce projet est l'application pratique et visuelle de notre mémoire de recherche (dont le texte intégral est disponible dans le document **`projet.md`**). Notre but est de rendre accessible à tous, même sans aucun bagage informatique, une grande vérité sur les rouages de l'Intelligence Artificielle.
 
-## Structure du Projet
+Nous opposons ici deux manières de "faire réfléchir" les machines :
+- **L'approche Déterministe :** L'ordinateur classique, rigide, qui suit une formule stricte ou une grille de calcul implacable.
+- **L'approche Stochastique :** L'ordinateur "moderne", auquel on apprend à utiliser le sort, le hasard et les probabilités pour réagir.
 
-```text
-📁 datascience/
-│
-├── 📄 WA_Fn-UseC_-Telco-Customer-Churn.csv # Dataset source issu de Kaggle
-├── 📄 X_train.csv, X_test.csv, y_train.csv, y_test.csv # Jeux de données fractionnés après le prétraitement
-├── 📄 01_EDA_et_Pretraitement.ipynb        # Phase 1 : Nettoyage, statistiques et visualisations de base
-├── 📄 02_Modelisation_Stochastique.ipynb   # Phase 2 : Pipeline d'apprentissage, duel algorithmique et exports
-├── 📄 model_deterministe_logreg.pkl        # Modèle entraîné persisté (Régression Logistique)
-├── 📄 model_stochastique_random_forest.pkl # Modèle entraîné persisté (Random Forest)
-├── 📄 model_stochastique_xgboost.pkl       # Modèle entraîné persisté (XGBoost)
-├── 📄 model_stochastique_lightgbm.pkl      # Modèle entraîné persisté (LightGBM)
-├── 📄 model_stochastique_sgd.pkl           # Modèle entraîné persisté (SGD Classifier)
-├── 📄 app.py                               # Phase 3 : Application Streamlit testant les probabilités en multi-algorithmes
-├── 📄 requirements.txt                     # Dépendances nécessaires à l'exécution de l'environnement
-│
-└── 📁 presentation_assets/                 # Dossier généré automatiquement contenant les assets visuelles des notebooks :
-    ├── 1_déséquilibre_classes.png
-    ├── 2_correlations_heatmap.png
-    ├── 3_pipeline_architecture.txt
-    ├── 5_comparaison_roc_auc.png
-    └── 6_feature_importance.png
-```
+Comme nous le défendons d'un bout à l'autre de notre rapport (dans `projet.md`), notre thèse est simple et paradoxale : **une machine à qui l'on injecte une part de doute et de hasard aléatoire devient étonnamment plus intelligente, plus rapide et plus robuste face à la société humaine qu'une machine traditionnelle !**
 
-## Comment exécuter le projet ?
+Pour vous le prouver de vos propres yeux, cet outil de recherche a été pensé comme un tableau de bord expérimental unique, divisé de manière très claire en quatre laboratoires que tout le monde peut tester via une interface web :
 
-### 1. Installation de l'environnement
-Il est recommandé d'utiliser un environnement virtuel (via `venv` ou `conda`). Une fois votre environnement actif, installez les dépendances requises via la commande :
+## Les 4 Laboratoires de notre Recherche
 
-```bash
-pip install -r requirements.txt
-```
+1. **[Axe 1 : La prédiction humaine face au hasard](./deterministe_vs_stochastique/)**  
+   *Cas Pratique :* Essayer de deviner à l'avance si un client veut se désabonner de notre opérateur Télécom. La formule mathématique droite (déterministe) échoue complètement face à la psychologie humaine, là où l'ordinateur s'appuyant sur l'intelligence collective des tirages au hasard tape dans le mille.
 
-### 2. Phase Analytique et Modélisation
-Afin de générer vos modèles prédictifs et de re-créer les graphiques analytiques, exécutez les carnets de notes Jupyter l'un après l'autre.
-Lancez dans votre terminal :
+2. **[Axe 2 : Gagner du temps de réglages](./optimisation_hyperparametres/)**  
+   *Cas Pratique :* Trouver le paramétrage parfait pour accélérer un logiciel. L'approche classique perd un temps infini et incalculable à vouloir tout essayer une par une, tandis que l'ordinateur utilisant le "hasard guidé" devine le réglage gagnant de manière fulgurante.
 
-```bash
-jupyter notebook
-```
-- Ouvrez puis exécutez l'entièreté de `01_EDA_et_Pretraitement.ipynb`.
-- Ouvrez puis exécutez l'entièreté de `02_Modelisation_Stochastique.ipynb`. (Cette étape génère les `.pkl` requis pour l'application).
+3. **[Axe 3 : Transformer le Chaos en Harmonie (La Foule) ](./simulation_systeme_multi_agents/)**  
+   *Cas Pratique :* Le jeté de dé. Nous utilisons la vraie base de données de milliers d'amitiés Facebook de l'Université de Stanford. Nous appliquons un hasard aveugle aux comportements individuels et regardons l'image globale du réseau social se former pour démontrer la Loi des Grands Nombres.
 
-### 3. Lancer l'Application de Décision
-Une fois vos modèles de Gradient Boosting générés, une interface d'interprétabilité et de classification interactive a été construite sous *Streamlit*. 
-Exécutez dans votre terminal :
+4. **[Axe 4 : Bruitage d'images en Intelligence Artificielle](./augmentation_stochastique_vision/)**  
+   *Cas Pratique :* Reconnaissance visuelle de divers vêtements. Nous démontrons qu'en forçant le robot de vision à plisser les yeux et tourner la tête face à des images volontairement saccagées (stochastique), on le dote d'une intelligence globale le protégeant du "par cœur" pur et simple.
 
-```bash
-streamlit run app.py
-```
-Un onglet de votre navigateur devrait automatiquement s'ouvrir (habituellement sur `http://localhost:8501`). Saisissez les données d'un profil client pour observer le verdict de résiliation, dicté par une topologie mathématique probabiliste.
+## Pré-requis Globaux
+L'ensemble des expérimentations de ce projet unique repose sur le langage Python et les paradigmes MLOps de sérialisation des modèles.
+Une interface web d'analyse unifiée (Streamlit) accompagne chaque pôle expérimental pour faciliter l'exploration de nos résultats par le collège d'examinateurs. La structure et les détails d'exécution propres à chaque scénario sont documentés dans leurs espaces respectifs.

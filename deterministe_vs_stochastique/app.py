@@ -12,11 +12,11 @@ st.set_page_config(page_title="Telco Churn Analytics", page_icon="📡", layout=
 def load_models():
     models = {}
     try:
-        models['xgboost'] = joblib.load('model_stochastique_xgboost.pkl')
-        models['lightgbm'] = joblib.load('model_stochastique_lightgbm.pkl')
-        models['logreg'] = joblib.load('model_deterministe_logreg.pkl')
-        models['random_forest'] = joblib.load('model_stochastique_random_forest.pkl')
-        models['sgd'] = joblib.load('model_stochastique_sgd.pkl')
+        models['xgboost'] = joblib.load('models/model_stochastique_xgboost.pkl')
+        models['lightgbm'] = joblib.load('models/model_stochastique_lightgbm.pkl')
+        models['logreg'] = joblib.load('models/model_deterministe_logreg.pkl')
+        models['random_forest'] = joblib.load('models/model_stochastique_random_forest.pkl')
+        models['sgd'] = joblib.load('models/model_stochastique_sgd.pkl')
         return models
     except Exception as e:
         st.error(f"Erreur lors du chargement des modèles. Détail : {e}")
@@ -27,7 +27,7 @@ models = load_models()
 # --- Chargement du dataset originel (pour schémas) ---
 @st.cache_data
 def get_empty_df():
-    df = pd.read_csv("WA_Fn-UseC_-Telco-Customer-Churn.csv", nrows=1)
+    df = pd.read_csv("data/WA_Fn-UseC_-Telco-Customer-Churn.csv", nrows=1)
     df = df.drop(columns=['Churn', 'customerID'])
     return df
 
