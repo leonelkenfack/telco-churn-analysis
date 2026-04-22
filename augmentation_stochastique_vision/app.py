@@ -18,14 +18,35 @@ except:
     st.stop()
 
 # VISUEL DE LA PERTURBATION
-st.subheader("1. Le Coupable : 'Le Hasard Artificiel'")
-st.markdown("Pour l'ordinateur, un simple hasard de rotation de 5° ou un micro-flou aléatoire modifie l'intégrité absolue de la matrice de pixel. Autrement dit : **le réseau stochastique ne s'entraîne mathématiquement jamais deux fois sur la même image** alors que le réseau déterministe oui.")
+st.subheader("1. La Technique : Brouiller volontairement la vue")
+st.markdown("""
+> 💡 *Attention à ne pas s'y tromper : L'ordinateur ne **génère** pas de "nouveaux" vêtements de toutes pièces sur la deuxième ligne !*
+
+Les images de la ligne du bas (La version Stochastique) sont en réalité **exactement les mêmes images originales** que celles du haut, mais que notre système a volontairement décidé de "brouiller" lors de la copie. Avant de la regarder, le système jette un dé au hasard (probabilités) et décide de tourner la photo de 15 degrés, de zoomer un peu dessus, ou de la retourner comme dans un miroir (Data Augmentation). 
+
+**Pourquoi faire cela ?** 
+Pour une machine classique (Déterministe), une image est une grille figée de milliers de pixels. Si elle voit cette grille 100 fois à l'identique, la machine va juste s'en souvenir par cœur, bêtement. C'est le fléau du surapprentissage (*Overfitting*).
+Mais pour l'entraîneur **Stochastique**, l'image change légèrement à chaque fois. Comme la machine ne voit littéralement *jamais deux fois la même grille de pixel parfaite*, elle ne peut rien mémoriser bêtement. Elle se retrouve forcée de vraiment utiliser de l'intelligence pour comprendre l'essence globale du vêtement !
+""")
 st.image(img_bruit, use_container_width=False)
 
 st.divider()
 
-# ANALYSE PUREMENT MATHEMATIQUE
-st.subheader("2. La Preuve Scientifique : Courbes des Pertes (Loss)")
+# ANALYSE DE L'EFFONDREMENT
+st.subheader("2. La Preuve Scientifique : Lire l'effondrement et la victoire")
+st.markdown("""
+> 💡 **Comment expliquer cette courbe à un non-informaticien ?**  
+> L'axe vertical de gauche représente "l'Erreur" commise par la machine. Plus c'est bas, mieux c'est.
+
+* 🔴 **Les Courbes Rouges (La Machine Classique/Déterministe) :**  
+  Regardez la ligne rouge en pointillés qui plonge : la machine classique s'entraîne par cœur et pense être invincible. Mais regardez sa jumelle, **la ligne Rouge pleine (Test sur images inconnues)** : arrivée au milieu du graphe, l'erreur s'envole littéralement vers le plafond ! C'est la panique à bord (le *surapprentissage*), la machine récitait par cœur et se trouve incapable de reconnaître les vêtements réels.
+
+* 🔵 **Les Courbes Bleues (La Machine Stochastique) :**  
+  Observez la majestueuse ligne Bleue pleine. Puisque l'on a sans arrêt *brouillé* en direct sa petite salle d'entraînement, la machine probabiliste ne baisse pas les bras en conditions difficiles ! Sa ligne pleine épouse et suit très sagement sa ligne pointillée vers le bas de l'écran de manière harmonique.
+
+**Bilan visuel :** Même sans mathématiques, **la courbe Rouge classique divorce et explose**, là où **la courbe Bleue stochastique reste sage et prédictible**. Le hasard l'a sauvé !
+""")
+
 st.markdown("Voici l'évolution historique de nos deux Réseaux de Neurones Convolutionnels isolés pendant 25 époques (*Le modèle cherche à obtenir la Loss la plus proche de 0 possible*).")
 
 col1, col2 = st.columns(2)

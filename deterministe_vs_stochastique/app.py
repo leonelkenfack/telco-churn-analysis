@@ -114,26 +114,44 @@ with tab_analytics:
     with row1_c1:
         st.subheader("Structure et Corrélation")
         display_img("presentation_assets/1_déséquilibre_classes.png", "Axiome : Déséquilibre massif de la variable cible")
-        st.markdown("*Justification : Rend la métrique standard 'Accuracy' caduque.*")
+        st.markdown("""
+        > 💡 **Comment expliquer l'image du Déséquilibre ?**  
+        > L'écrasante majorité des clients de ce tableau sont stables (Non), contre très peu de résiliations (Oui). Cela explique pourquoi une approche mathématique classique échoue : elle pourrait tricher, voter bêtement "Non" pour tout le monde, et obtenir une très bonne "note mathématique" (Accuracy) de 73% alors qu'elle n'a strictement rien deviné de notre métier !
+        """)
         display_img("presentation_assets/2_correlations_heatmap.png", "Carte de chaleur des covariances")
+        st.markdown("""
+        > 💡 **Comment expliquer cette Carte de Chaleur (Heatmap) ?**  
+        > Elle montre comment nos données se superposent et se "polluent". Les couleurs chaudes signalent des éléments croisés très ressemblants. Contrairement aux approches déterministes qui s'emmêlent les pinceaux devant trop de ressemblance, l'arbre stochastique isole les éléments au hasard sans se laisser biaiser.
+        """)
         
     with row1_c2:
         st.subheader("Performance Mathématique et Éthique")
         display_img("presentation_assets/5_comparaison_roc_auc.png", "Duel des trajectoires algorithmiques (Courbes ROC)")
-        st.markdown("*L'aire sous la courbe (AUC) prouve mathématiquement la puissance discriminante supérieure mais asymétrique des modèles stochastiques.*")
+        st.markdown("""
+        > 💡 **Comment lire le graphique des Courbes ROC ?**  
+        > Dans ce duel, plus une ligne "gonfle" vers le carré en haut à gauche, plus l'ordinateur est souverain et intelligent (Performances de 100%).
+        > * **La ligne la plus basse (Régression logistique) :** Modèle déterministe. En tirant une simple règle rigide, il percute un plafond de verre et plafonne tout en bas.
+        > * **Toutes les autres courbes supérieures :** Ce sont les modèles probabilitistes (Stochastiques). Grâce au hasard et à l'intelligence de la foule (des milliers de tirages), ils s'adaptent mieux à la complexité de l'humain et dépassent sans effort la machine classique sur notre écran !
+        """)
         
         st.subheader("Explicabilité (Interpretability) croisée")
-        st.markdown("Examinez le mécanisme de décision de l'algorithme choisi :")
+        st.markdown("Examinez l'explication mécanique du 'cerveau' de la machine selon son paradigme :")
         model_choice = st.selectbox("Sélectionnez le modèle à analyser :", 
                                     ["Régression Logistique (Déterministe)", "Random Forest (Stochastique)", 
                                      "XGBoost (Stochastique)", "LightGBM (Stochastique)"])
         
         if model_choice == "Régression Logistique (Déterministe)":
             display_img("presentation_assets/6_importance_logreg.png", "Coefficients Linéaires Absolus")
-            st.markdown("*Contrairement aux arbres, ce modèle paramétrique utilise des coefficients multiplicateurs rigides. Il offre l'explicabilité maximale.*")
         elif model_choice == "Random Forest (Stochastique)":
             display_img("presentation_assets/6_importance_rf.png", "Gains d'Information (Random Forest)")
         elif model_choice == "XGBoost (Stochastique)":
             display_img("presentation_assets/6_importance_xgb.png", "Gains d'Information (XGBoost)")
         else:
             display_img("presentation_assets/6_importance_lgb.png", "Gains d'Information (LightGBM)")
+            
+        st.markdown("""
+        > 💡 **Comment lire ces graphiques en Barres (Feature Importance) ?**  
+        > Ce comparatif est redoutable car il vous permet de montrer à votre jury "ce qui se passe dans la tête" des IA. Quelles colonnes Excel les intéressent le plus ?
+        > * **Si vous êtes sur la Régression (Déterministe) :** L'intelligence est coincée. L'ordinateur affiche des poids (positifs ou négatifs) fixes. La machine considère de la même manière robotique l'Ancienneté d'un client, qu'il ait 20 ans ou 80 ans. Toute subtilité est écrasée.
+        > * **Si vous passez sur un modèle Stochastique :** Vous remarquerez que la liste change et s'uniformise ! En divisant l'apprentissage au hasard, l'arbre stochastique accorde beaucoup plus de respect humain : il prend en compte les croisements d'informations subtils ("Le client est jeune MAIS il paie pas cher = Intention différente"). C'est la beauté du modèle ensembliste.
+        """)

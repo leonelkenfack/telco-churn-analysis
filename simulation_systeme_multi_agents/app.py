@@ -90,4 +90,11 @@ with col_graph:
             
         st.success("✔️ La courbe macroscopique, visiblement lisse, vient formellement d'émerger du pur chaos fractal de 4000 agents individuels. Loi des grands nombres validée.")
     else:
+        st.markdown("""
+        > 💡 **Que signifie la "Courbe en Cloche" qui émerge du graphique ?**  
+        > Gardez à l'esprit que ce que vous venez de voir n'est qu'une succession de lancers de dés (Probabilités Stochastiques pures) effectués sur les 4000 étudiants du cercle Facebook.  
+        > * **La ligne bleue (Les sains) s'écroule** face à la montée de la **ligne rouge (La contagion)**.  
+        > * Au niveau microscopique (une seule personne) : on ne peut jamais prédire ce qui va se passer (Contagion ou non ?).  
+        > * Mais **au niveau macroscopique (Le groupe entier face au hasard)** : Regardez la ligne rouge lisse, parfaite et symétrique qui s'est créée. Le hasard a construit un "ordre parfait". C'est l'illustration ultime de la Théorie de l'Émergence face à votre jury !
+        """)
         st.info("👈 Paramétrez (β) et (γ), puis cliquez sur **Déclencher le Système Global** pour lancer les intéractions.")

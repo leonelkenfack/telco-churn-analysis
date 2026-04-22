@@ -25,6 +25,14 @@ with col1:
     
 with col2:
     try:
+        st.subheader("Performance vs Durée de recherche")
         st.image("presentation_assets/1_comparaison_temps_score.png", use_container_width=True, caption="Analyse croisée des algorithmes et stratégies")
+        st.markdown("""
+        > 💡 **Que lire sur ce "Banc d'Essai" (Graphique à bulles) ?**  
+        > L'axe horizontal, c'est le Temps. L'axe vertical, c'est l'Intelligence (Performance).  
+        > Idéalement, sur un graphique, on veut être en haut (très intelligent) et à gauche (très rapide).  
+        > * Regardez la grosse bulle du **Grid Search (Déterministe)** : Elle est coincée tout à droite, ce qui signifie qu'elle est extrêmement lente. Parce qu'elle essaie tout de force.  
+        > * Regardez les **méthodes Stochastiques (Bayésiennes comme Optuna)** : Leurs bulles sont collées complètement à gauche ! Le hasard guidé a permis à l'IA de trouver ses réglages presque instantanément tout en visant plus haut en performance.
+        """)
     except:
         pass
