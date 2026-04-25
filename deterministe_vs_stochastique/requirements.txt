@@ -3,9 +3,10 @@ numpy
 scikit-learn
 xgboost
 lightgbm
-optuna
+joblib
 seaborn
 matplotlib
+pillow
 streamlit
 jupyter
 nbformat
